@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<div class="about-container">
+  <section class="hero-section">
+    <h1>À propos de moi</h1>
+    <p class="subtitle">
+      Développeuse Web passionnée par la création d'expériences utilisateur
+      modernes
+    </p>
+  </section>
+
+  <section class="bio-section">
+    <div class="bio-content">
+      <h2>Qui suis-je ?</h2>
+      <p>
+        Étudiante à Epitech, je suis passionnée par le développement front-end
+        et la création d'interfaces utilisateur modernes et intuitives. Mon
+        expérience de 6 mois en tant que développeuse front-end chez Orange m'a
+        permis d'approfondir mes compétences techniques et de travailler sur des
+        projets d'envergure.
+      </p>
+      <p>
+        Je suis constamment à la recherche de nouveaux défis et j'adore
+        apprendre de nouvelles technologies pour créer des applications web
+        performantes et accessibles.
+      </p>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <h2>Compétences</h2>
+    <div class="skills-grid">
+      @for (skillGroup of skills; track skillGroup.category) {
+      <div class="skill-card">
+        <h3>{{ skillGroup.category }}</h3>
+        <ul>
+          @for (skill of skillGroup.items; track skill) {
+          <li>{{ skill }}</li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+  </section>
+
+  <section class="experience-section">
+    <h2>Expérience</h2>
+    <div class="timeline">
+      @for (exp of experiences; track exp.title) {
+      <div class="timeline-item">
+        <h3>{{ exp.title }}</h3>
+        <h4>{{ exp.company }} - {{ exp.period }}</h4>
+        <p>{{ exp.description }}</p>
+      </div>
+      }
+    </div>
+  </section>
+
+  <section class="education-section">
+    <h2>Formation</h2>
+    <div class="timeline">
+      @for (edu of education; track edu.degree) {
+      <div class="timeline-item">
+        <h3>{{ edu.degree }}</h3>
+        <h4>{{ edu.school }} - {{ edu.period }}</h4>
+        <p>{{ edu.description }}</p>
+      </div>
+      }
+    </div>
+  </section>
+</div>

@@ -1,0 +1,109 @@
+<app-header></app-header>
+
+<div class="projects-container">
+  <section class="hero-section">
+    <h1>Mes Projets</h1>
+    <p class="subtitle">
+      Découvrez mes réalisations et les technologies que j'ai utilisées
+    </p>
+  </section>
+
+  <section class="projects-grid">
+    @for (project of projects; track project.id) {
+    <article class="project-card" (click)="selectProject(project)">
+      <div class="project-header">
+        <h2>{{ project.title }}</h2>
+        <span class="project-subtitle">{{ project.subtitle }}</span>
+      </div>
+
+      <p class="project-description">{{ project.description }}</p>
+
+      <div class="technologies">
+        <h4>Technologies :</h4>
+        <div class="tech-list">
+          @for (tech of project.technologies; track tech) {
+          <span class="tech-badge">{{ tech }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="project-actions">
+        <button
+          class="btn-details"
+          (click)="selectProject(project); $event.stopPropagation()"
+        >
+          En savoir plus →
+        </button>
+      </div>
+    </article>
+    }
+  </section>
+
+  @if (selectedProject) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <button class="close-btn" (click)="closeModal()">✕</button>
+
+      <div class="modal-header">
+        <h2>{{ selectedProject.title }}</h2>
+        <span class="modal-subtitle">{{ selectedProject.subtitle }}</span>
+      </div>
+
+      <div class="modal-body">
+        <section class="project-details">
+          <h3>Description</h3>
+          <p>{{ selectedProject.longDescription }}</p>
+        </section>
+
+        <section class="project-features">
+          <h3>Fonctionnalités principales</h3>
+          <ul>
+            @for (feature of selectedProject.features; track feature) {
+            <li>{{ feature }}</li>
+            }
+          </ul>
+        </section>
+
+        <section class="project-tech">
+          <h3>Technologies utilisées</h3>
+          <div class="tech-list">
+            @for (tech of selectedProject.technologies; track tech) {
+            <span class="tech-badge-large">{{ tech }}</span>
+            }
+          </div>
+        </section>
+
+        <div class="project-links">
+          @if (selectedProject.githubUrl && selectedProject.githubUrl !== '#') {
+          <a
+            [href]="selectedProject.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-link"
+          >
+            <span>💻</span> Voir sur GitHub
+          </a>
+          } @if (selectedProject.liveUrl && selectedProject.liveUrl !== '#') {
+          <a
+            [href]="selectedProject.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-link"
+          >
+            <span>🌐</span> Voir le site
+          </a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+
+  <section class="cta-section">
+    <h2>Intéressé par mon travail ?</h2>
+    <p>
+      N'hésitez pas à me contacter pour discuter de vos projets ou opportunités
+    </p>
+    <a routerLink="/contact" class="btn-contact">Me contacter</a>
+  </section>
+</div>

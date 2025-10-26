@@ -1,0 +1,95 @@
+<app-header></app-header>
+
+<div class="home-container">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="profile-section">
+        <img
+          src="./assets/photo_profile.JPEG"
+          alt="Photo de profil d'Anaëlle Faure"
+          class="profile-img"
+        />
+        <div class="profile-info">
+          <h1 class="name">{{ name }}</h1>
+          <p class="role">{{ role }}</p>
+          <div class="cta-buttons">
+            <a routerLink="/projects" class="btn btn-primary"
+              >Voir mes projets</a
+            >
+            <a routerLink="/contact" class="btn btn-secondary">Me contacter</a>
+          </div>
+        </div>
+      </div>
+      <img
+        src="assets/logo_epitech.png"
+        alt="Logo Epitech"
+        class="epitech-logo"
+      />
+    </div>
+  </section>
+  <section class="about-preview">
+    <h2>À propos</h2>
+    <p class="about-text">{{ description }}</p>
+    <a routerLink="/about" class="link-more">En savoir plus →</a>
+  </section>
+  <section class="skills-preview">
+    <h2>Compétences principales</h2>
+    <div class="skills-grid">
+      @for (skill of skills; track skill.name) {
+      <div class="skill-item">
+        <div class="skill-header">
+          <span class="skill-name">{{ skill.name }}</span>
+          <span class="skill-percentage">{{ skill.level }}%</span>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-progress" [style.width.%]="skill.level"></div>
+        </div>
+      </div>
+      }
+    </div>
+  </section>
+  <section class="projects-preview">
+    <h2>Projets mis en avant</h2>
+    <div class="projects-grid">
+      @for (project of featuredProjects; track project.name) {
+      <div class="project-card">
+        <h3>{{ project.name }}</h3>
+        <p class="project-description">{{ project.description }}</p>
+        <div class="technologies">
+          @for (tech of project.technologies; track tech) {
+          <span class="tech-badge">{{ tech }}</span>
+          }
+        </div>
+        <a [routerLink]="project.link" class="project-link">Voir le projet →</a>
+      </div>
+      }
+    </div>
+    <div class="view-all">
+      <a routerLink="/projects" class="btn btn-outline"
+        >Voir tous les projets</a
+      >
+    </div>
+  </section>
+  <footer class="contact-footer">
+    <h2>Travaillons ensemble</h2>
+    <p>
+      Vous avez un projet ou une opportunité ? N'hésitez pas à me contacter !
+    </p>
+    <a href="mailto:anaelle.faure@epitech.eu" class="email-link"
+      >anaelle.faure&#64;epitech.eu</a
+    >
+    <div class="social-links">
+      <a
+        href="https://github.com/Anaelle2028"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-icon"
+      >
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/anaëlle-faure" target="_blank" rel="noopener noreferrer" class="social-icon">
+        <span>LinkedIn</span>
+      </a>
+    </div>
+  </footer>
+</div>
