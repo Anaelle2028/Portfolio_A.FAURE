@@ -36,7 +36,7 @@ export class ProjectsComponent {
         et communiquer avec les candidats. L'application est développée avec React.js pour le front-end
         et Express.js pour le back-end, offrant une expérience utilisateur fluide et réactive.
       `,
-      technologies: ['React.js', 'Express.js', 'API REST', 'CSS3', 'JavaScript'],
+      technologies: ['React.js', 'Docker', 'MySQL', 'Express.js', 'API REST', 'CSS3', 'JavaScript'],
       features: [
         'Gestion des offres d\'emploi',
         'Système de gestion des candidatures',
@@ -73,10 +73,10 @@ export class ProjectsComponent {
       id: 3,
       title: 'Portfolio Personnel',
       subtitle: 'Site vitrine professionnel',
-      description: 'Portfolio moderne développé avec Angular et Server-Side Rendering',
+      description: 'Portfolio moderne développé avec Angular',
       longDescription: `
         Ce portfolio a été conçu pour présenter mes compétences et projets de manière professionnelle.
-        Développé avec Angular 19 et SSR (Server-Side Rendering) pour des performances optimales et un
+        Développé avec Angular 19, pour des performances optimales et un
         meilleur référencement. L'application inclut des animations fluides, un design responsive, et
         un formulaire de contact fonctionnel.
       `,

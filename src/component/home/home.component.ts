@@ -28,15 +28,15 @@ export class HomeComponent {
 
   featuredProjects = [
     {
-      name: 'SneakR',
-      description: 'Site de E-commerce de sneakers réalisé avec Vue.js et Strapi',
-      technologies: ['Vue.js', 'Strapi', 'API REST'],
+      name: 'Job Board',
+      description: 'Plateforme de recherche d\'emploi pour développeurs',
+      technologies: ['React.js', 'Docker', 'MySQL', 'Express.js', 'API REST', 'CSS3', 'JavaScript'],
       link: '/projects'
     },
     {
       name: 'SmartCity',
       description: 'Application de localisation des parcs avec données enrichies',
-      technologies: ['React Native', 'Firebase', 'API'],
+      technologies: ['React Native', 'Firebase', 'TypeScript', 'API REST'],
       link: '/projects'
     }
   ];
